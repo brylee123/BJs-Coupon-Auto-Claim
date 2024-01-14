@@ -1,1 +1,19 @@
-javascript:!function(){var t=document.querySelectorAll("div[id^='card-'] > div > div.text-center.print-card-footer > div > button"),i=0;!function n(){for(var r=9*i,e=Math.min(r+9,t.length),c=r;c<e;c++)t[c].click();9*++i<t.length&&setTimeout(n,1e3)}()}();
+javascript:(function() {
+    var coupons = document.querySelectorAll("div[id^='card-'] > div > div.text-center.print-card-footer > div > button");
+    var batchSize = 9;
+    var currentBatch = 0;
+
+    function processBatch() {
+        var start = currentBatch * batchSize;
+        var end = Math.min(start + batchSize, coupons.length);
+        for (var i = start; i < end; i++) {
+            coupons[i].click();
+        }
+        currentBatch++;
+        if (currentBatch * batchSize < coupons.length) {
+            setTimeout(processBatch, 1000); // Waits for 1 second before processing the next batch
+        }
+    }
+
+    processBatch();
+})();
