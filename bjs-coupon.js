@@ -1,1 +1,1 @@
-javascript:(function(){var e=document.querySelectorAll("div[id^='card-'] > div > div.text-center.print-card-footer > div > button");for(var t=0;t<e.length;t++)e[t].click()})();
+javascript:!function(){var t=document.querySelectorAll("div[id^='card-'] > div > div.text-center.print-card-footer > div > button"),i=0;!function n(){for(var r=9*i,e=Math.min(r+9,t.length),c=r;c<e;c++)t[c].click();9*++i<t.length&&setTimeout(n,1e3)}()}();
